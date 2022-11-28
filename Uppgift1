@@ -1,0 +1,31 @@
+function binary_search_tree_to_string(bst) {
+    const string_with_names = "";
+    
+    return entry(bst) + tree_to_string_right(bst, string_with_names) + 
+    tree_to_string_left(bst, string_with_names);
+    
+}
+
+function tree_to_string_right(bst, strings){
+        return is_empty_tree(right_branch(bst))
+        ? strings
+        : tree_to_string_right(right_branch(bst), strings + "; " + entry(right_branch(bst)));
+    }
+function tree_to_string_left(bst, strings){
+        return is_empty_tree(left_branch(bst))
+        ? strings
+        : tree_to_string_left(left_branch(bst), strings + "; " + entry(left_branch(bst)));
+        
+}
+
+
+const h = make_tree("h", make_empty_tree(), make_empty_tree());
+const a = make_tree("a", make_empty_tree(), make_empty_tree());
+const n = make_tree("n", h, make_empty_tree());
+const c = make_tree("c", a, make_empty_tree());
+const test_bst = make_tree("e", c, n);
+
+// Test
+binary_search_tree_to_string(test_bst);
+//binary_search_tree_to_string(pkd_names);
+//right_branch(pkd_names);
