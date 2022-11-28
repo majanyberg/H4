@@ -5,8 +5,8 @@ function find(bst, name) {
            : name === entry(bst) 
            ? true
            : name < entry(bst)
-           ? find(name, left_branch(bst))
-           : find(name, right_branch(bst));
+           ? find(left_branch(bst), name)
+           : find(right_branch(bst), name);
 }
 
 
