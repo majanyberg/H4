@@ -1,0 +1,15 @@
+function find(bst, name) {
+    // your answer here
+    return is_empty_tree(bst) 
+           ? false
+           : name === entry(bst) 
+           ? true
+           : name < entry(bst)
+           ? find(name, left_branch(bst))
+           : find(name, right_branch(bst));
+}
+
+
+// Test
+
+find(pkd_names, "Nyberg, Maja");
