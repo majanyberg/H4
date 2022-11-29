@@ -3,14 +3,14 @@
 function insert(bst, item) {
     // your answer here
     return is_empty_tree(bst)
-        ? make_tree(item, make_empty_tree(), make_empty_tree())
-        : item === entry(bst)
-        ? bst
-        : item > entry(bst)
-        ? make_tree(entry(bst),
+           ? make_tree(item, make_empty_tree(), make_empty_tree())
+           : item === entry(bst)
+           ? bst
+           : item > entry(bst)
+           ? make_tree(entry(bst),
                 left_branch(bst),
                     insert(right_branch(bst), item))
-        : make_tree(entry(bst),
+           : make_tree(entry(bst),
                 insert(left_branch(bst), item),
                     right_branch(bst));
 
