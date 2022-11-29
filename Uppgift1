@@ -1,25 +1,26 @@
- function binary_search_tree_to_string(bst) {
-    const string_with_names = "";
+//Maja Nyberg och Eric Buxton
 
-    return tree_to_string(bst, string_with_names);
-
+function binary_search_tree_to_string(bst) {
+    
+    const semicolon = "; ";
+    const nothing = "";
+    
+    function is_element_true(string_of_names, bst) {
+        return is_empty_tree(bst) 
+               ? string_of_names
+               : is_element_true(entry(bst), left_branch(bst)) + 
+                    semicolon + is_element_true(string_of_names, 
+                        right_branch(bst));
+    }
+    return is_element_true(nothing, bst);
 }
- function tree_to_string(bst, strings){
-    return is_empty_tree(bst)
-    ? strings
-    : tree_to_string(left_branch(bst), 
-                            entry(bst) + "; " +
-                            tree_to_string(right_branch(bst), strings));
 
- }
+const h = make_tree("h", make_empty_tree(), make_empty_tree());
+const a = make_tree("a", make_empty_tree(), make_empty_tree());
+const n = make_tree("n", h, make_empty_tree());
+const c = make_tree("c", a, make_empty_tree());
+const test_bst = make_tree("e", c, n);
 
-
- const h = make_tree("h", make_empty_tree(), make_empty_tree());
- const a = make_tree("a", make_empty_tree(), make_empty_tree());
- const n = make_tree("n", h, make_empty_tree());
- const c = make_tree("c", a, make_empty_tree());
- const test_bst = make_tree("e", c, n);
-
- // Test
- //binary_search_tree_to_string(test_bst);
- binary_search_tree_to_string(pkd_names);
+// Test
+binary_search_tree_to_string(test_bst);
+//binary_search_tree_to_string(pkd_names);
